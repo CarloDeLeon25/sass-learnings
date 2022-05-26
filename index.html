@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoert" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SASS Learnings</title>
+</head>
+
+<body>
+    <div>
+        <h2>Variable Declarations</h2>
+        <div>
+            <p>Sass variables starts with $ sign. The variables assigned can be used anywhere on the scss code</p>
+            <div class="sample1">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <h2>Nesting</h2>
+        <div>
+            <p>Sass nesting nests CSS selectors the same way as HTML. </p>
+            <div>
+                <nav class="nav">
+                    <ul class="ul">
+                        <li class="list">List 1</li>
+                        <li class="list">List 2</li>
+                        <li class="list">List 3</li>
+                        <li class="list">List 4</li>
+                        <li class="list">List 5</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <h2>Sass @import</h2>
+        <div>
+            <p>I used the @import "sample.scss" in the whole code. sample.scss contains margin: 0, padding: 0, and
+                text-align:center property to .h2, .sample1, and .nav.</p>
+        </div>
+        <h2>Sass @mixin and @include</h2>
+        <div class="mixin">
+            <p>@mixin directive creates a reusable code/set of code throughout the website.</p>
+        </div>
+        <div class="mixin2">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsa hic a. Qui, ea? Dolorum non in amet consectetur neque!</p>
+        </div>
+        <h3>Passing variables to a Mixin</h3>
+        <p>Mixin variables are used as arguemnts in @mixin passing-variable($color, $width).</p>
+        <div>
+            <p class="sample2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, enim.</p>
+            <p class="sample3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, repellat!</p>
+        </div>
+        <div>
+            <h2>Saas @extend</h2>
+            <p>@extend shares CSS properties from one selector to another.</p>
+            <button type="submit" class="button-submit">Button 1</button>
+            <button type="submit" class="button-proceed">Button 2</button>
+            <button type="submit" class="button-close">Button 3</button>
+        </div>
+    </div>
+</body>
+
+</html>
