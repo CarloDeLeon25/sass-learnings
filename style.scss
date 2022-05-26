@@ -1,0 +1,68 @@
+@import "sample.scss";
+
+@mixin sample-text {
+  background-color: #ccc;
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 2em;
+  margin: 5px;
+}
+
+@mixin passing-variable($color, $width) {
+  border: $width solid $color;
+}
+
+$color: red;
+$border: 1px solid black;
+$size: 2em;
+
+.sample1 {
+  color: $color;
+  border: $border;
+  padding: $size;
+}
+
+.nav {
+  .ul {
+    padding: 2em;
+    list-style: none;
+  }
+
+  .list {
+    background: #ddd;
+    display: inline;
+    margin: 10px;
+  }
+}
+
+.mixin,
+.mixin2 {
+  @include sample-text;
+}
+
+.sample2 {
+  @include passing-variable(#ddd, 2px);
+}
+
+.sample3 {
+  @include passing-variable(black, 2px);
+}
+
+.button-submit{
+    border: none;
+    background-color: #ccc;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 1em
+}
+
+.button-proceed{
+    @extend .button-submit;
+    color:white;
+}
+
+.button-close{
+    @extend .button-proceed;
+    border: 1px solid black;
+}
