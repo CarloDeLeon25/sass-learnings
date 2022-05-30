@@ -1,28 +1,7 @@
-.h2, .sample1, .nav {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
+@import "sample.scss";
+@use "fonts.scss";
 
-.sample1 {
-  color: red;
-  border: 1px solid black;
-  padding: 2em;
-}
-
-.nav .ul {
-  padding: 2em;
-  list-style: none;
-}
-
-.nav .list {
-  background: #ddd;
-  display: inline;
-  margin: 10px;
-}
-
-.mixin,
-.mixin2 {
+@mixin sample-text {
   background-color: #ccc;
   font-size: 20px;
   border: 1px solid black;
@@ -30,15 +9,50 @@
   margin: 5px;
 }
 
+@mixin passing-variable($color, $width) {
+  border: $width solid $color;
+}
+
+//variables
+$color: red;
+$border: 1px solid black;
+$size: 2em;
+
+.sample1 {
+  color: $color;
+  border: $border;
+  padding: $size;
+}
+
+.nav {
+  .ul {
+    padding: 2em;
+    list-style: none;
+  }
+
+  .list {
+    background: #ddd;
+    display: inline;
+    margin: 10px;
+  }
+}
+
+// mixin
+.mixin,
+.mixin2 {
+  @include sample-text;
+}
+
+// @include
 .sample2 {
-  border: 2px solid #ddd;
+  @include passing-variable(#ddd, 2px);
 }
 
 .sample3 {
-  border: 2px solid black;
+  @include passing-variable(black, 2px);
 }
 
-.button-submit, .button-proceed, .button-close {
+.button-submit {
   border: none;
   background-color: #ccc;
   text-align: center;
@@ -47,11 +61,78 @@
   padding: 1em;
 }
 
-.button-proceed, .button-close {
+.button-proceed {
+  @extend .button-submit;
   color: white;
 }
 
 .button-close {
+  @extend .button-proceed;
   border: 1px solid black;
 }
-/*# sourceMappingURL=style.css.map */
+
+// Scope
+
+$global-variable: red;
+
+.variable-scope {
+  color: $global-variable;
+  $local-variable: 12px;
+}
+
+// .local-scope {
+//  size: $local-variable;
+//}
+
+$dark-theme: true !default;
+$primary-color: #f8bbd0 !default;
+$accent-color: #6a1b9a !default;
+
+@if $dark-theme {
+  $primary-color: darken($primary-color, 60%);
+  $accent-color: lighten($accent-color, 60%);
+}
+
+.button {
+  background-color: $primary-color;
+  border: 1px solid $accent-color;
+  border-radius: 3px;
+}
+
+// map with key value pairs
+$colors: (
+  "blue": #1919e6,
+  "black": black,
+  "white": white,
+  "red": red,
+  "orange": #ffa600,
+);
+
+.map-sample {
+  background-color: map-get($colors, "blue");
+}
+
+// Sass Interpolation
+
+@mixin inline-animation($duration) {
+  $name: inline-#{unique-id()};
+
+  @keyframes #{$name} {
+    @content;
+  }
+
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+}
+
+.interpolation-sample {
+  @include inline-animation(4s) {
+    from {
+      background-color: red;
+    }
+    to {
+      background: green;
+    }
+  }
+}
