@@ -42,7 +42,8 @@
             <p>@mixin directive creates a reusable code/set of code throughout the website.</p>
         </div>
         <div class="mixin2">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsa hic a. Qui, ea? Dolorum non in amet consectetur neque!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsa hic a. Qui, ea? Dolorum non in amet
+                consectetur neque!</p>
         </div>
         <h3>Passing variables to a Mixin</h3>
         <p>Mixin variables are used as arguemnts in @mixin passing-variable($color, $width).</p>
@@ -57,6 +58,23 @@
             <button type="submit" class="button-proceed">Button 2</button>
             <button type="submit" class="button-close">Button 3</button>
         </div>
+        <h2>Sass Variable Scope</h2>
+        <p class="variable-scope">Variables declared at the top of the stylesheet can be used throughout the code.
+            Meanwhile the variables that are not declared at the top is can only be used inside a curly braces.</p>
+        <p class="local-scope">The text above is colored red with the use of a global variable.</p>
+        <h2>Flow Control Scope</h2>
+        <div>
+            <button class="button" type="button">Button</button>
+        </div>
+    </div>
+    <p class="map-sample">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, sed!</p>
+    <div>
+        <h2>Sass Interpolation</h2>
+        <div class="interpolation-sample">Pulsing animation example using SASS Interpolation. SASS interpolation avoids
+            the use of numbers and it is only useful on inserting values into strings. @mixin accepts one argument which
+            is the duration of this animation and unique-id() will be dynamically created.
+        </div>
+
     </div>
 </body>
 
